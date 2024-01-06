@@ -14,10 +14,10 @@ const NewLetter = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 justify-center items-center">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 justify-center items-center mt-10">
         <h1 className="text-white text-[2.125rem] font-[500]">Join Our Community</h1>
         <div className="flex gap-4">
-          <input type="email" className={`border ${(errors?.email?.message)?"border-red-600":"border-none"} outline-none rounded-l-xl bg-[#202025] px-2 py-4 w-[18.75rem] text-[1.125rem] text-[#C2C2C2] placeholder-[#C2C2C2] placeholder-opacity-50`} {...register("email",{
+          <input type="email" className={`border ${(errors?.email?.message)?"border-red-600":"border-none"} outline-none rounded-l-xl bg-[#202025] px-2 py-4 max-w-[18.75rem] text-[1.125rem] text-[#C2C2C2] placeholder-[#C2C2C2] placeholder-opacity-50`} {...register("email",{
             required:"Please Enter Your Email",
             pattern:{
               value:/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/i,

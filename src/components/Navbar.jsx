@@ -17,31 +17,31 @@ const Navbar = () => {
       <div className='flex items-center justify-center'>
         <h1 className='text-2xl font-bold'>Busell</h1>
       </div>
-      <div className='hidden md:flex space-x-12 justify-center items-center'>
-        <Link to='/' className='text-l font-medium text-[#16161B]'>
+      <div className='hidden lg:flex space-x-12 justify-center items-center'>
+        <Link to='/' className='text-lg font-medium text-[#16161B]'>
           Home
         </Link>
-        <Link to='/contact' className='text-l font-medium text-[#16161B]'>
+        <Link to='/contact' className='text-lg font-medium text-[#16161B]'>
           Contact
         </Link>
-        <Link to='/about' className='text-l font-medium text-[#16161B]'>
+        <Link to='/about' className='text-lg font-medium text-[#16161B]'>
           About
         </Link>
-        <Link to='/pricing' className='text-l font-medium text-[#16161B]'>
+        <Link to='/pricing' className='text-lg font-medium text-[#16161B]'>
           Pricing
         </Link>
-        <Link to='/product' className='text-l font-medium text-[#16161B]'>
+        <Link to='/product' className='text-lg font-medium text-[#16161B]'>
           Product
         </Link>
       </div>
-      <div className='md:flex items-center justify-center hidden'>
-          <button className='primary-btn'>
+      <div className='lg:hidden items-center space-x-8 justify-center flex'>
+          <button className='primary-btn hidden md:flex'>
             <Link to={"/product"}>
               Brows Products
             </Link>
           </button>
-      </div>
-        <button className='md:hidden' onClick={() => setMenu(!menu)}>
+
+          <button className='flex lg:hidden' onClick={() => setMenu(!menu)}>
           <svg
             width='24'
             height='18'
@@ -55,6 +55,8 @@ const Navbar = () => {
             />
           </svg>
         </button>
+      </div>
+        
           {menu && (
             <div className='flex flex-col items-center justify-center space-y-8 py-8 text-center absolute top-16 right-0 w-full bg-white rounded-b-lg z-50' 
             onClick={() => setMenu(false)}
@@ -71,7 +73,7 @@ const Navbar = () => {
               <Link to='/product' className='text-l font-medium text-[#16161B]'>
                 Product
               </Link>
-              <button className='primary-btn'>
+              <button className='primary-btn sm:block md:hidden'>
                 <Link to={"/product"}>
                   Brows Products
                 </Link>

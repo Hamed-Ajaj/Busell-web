@@ -19,7 +19,7 @@ const Brows = () => {
                 Browse through some of my Most Popular Products!
             </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-y-8 md:gap-x-8 w-full justify-center items-center">
+      <div className="flex flex-col lg:flex-row gap-y-8 md:gap-x-8 w-full justify-center items-center">
             <div className="flex flex-2 flex-col bg-white rounded-[2.5rem] justify-center items-start p-[1.25rem] gap-10 shadow-md shadow-[#C2C2C2]">
                 <div className="bg-[#000] rounded-full flex justify-center items-center w-[3.1rem] h-[3.1rem] p-3 ">
                     <img src={vector} alt="template" className="w-6 h-6"/>
