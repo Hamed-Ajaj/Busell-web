@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import NewLetter from "./NewLetter"
 const Footer = () => {
   return (
-    <footer className='w-full flex flex-col py-6 bg-black lg:py-[3.125rem] lg:px-[6.25rem]  justify-center items-center overflow-x-hidden'>
+    <footer className='w-full flex flex-col py-6 px-6 bg-black lg:py-[3.125rem] lg:px-[6.25rem]  justify-center items-center overflow-x-hidden'>
       {/* container */}
         <div className="flex flex-col gap-y-8 justify-center items-center self-stretch lg:gap-9 lg:py-[3.44rem] md:px-[2.5rem] w-full">
             <div className="flex flex-wrap gap-y-8  justify-center items-center flex-col lg:flex-row lg:justify-between">
