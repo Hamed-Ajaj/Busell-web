@@ -15,7 +15,9 @@ const Navbar = () => {
   return (
     <nav className='fixed right-0 top-0 bg-white z-10 w-full flex flex-row justify-between px-4 md:px-12 py-4'>
       <div className='flex items-center justify-center'>
-        <h1 className='text-2xl font-bold'>Busell</h1>
+        <Link to={"/"}>
+          <h1 className='text-2xl font-bold'>Busell</h1>
+        </Link>
       </div>
       <div className='hidden lg:flex space-x-12 justify-center items-center'>
         <Link to='/' className='text-lg font-medium text-[#16161B]'>
@@ -72,6 +74,9 @@ const Navbar = () => {
               </Link>
               <Link to='/product' className='text-l font-medium text-[#16161B]'>
                 Product
+              </Link>
+              <Link to='/about' className='text-l font-medium text-[#16161B]'>
+                About
               </Link>
               <button className='primary-btn sm:block md:hidden'>
                 <Link to={"/product"}>

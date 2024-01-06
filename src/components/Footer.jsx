@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
 import NewLetter from "./NewLetter"
+import { useContext } from "react"
+import { ScrollContext } from "../context/ScrollContext"
 const Footer = () => {
+
+  
   return (
     <footer className='w-full flex flex-col py-6 px-6 bg-black lg:py-[3.125rem] lg:px-[6.25rem]  justify-center items-center overflow-x-hidden'>
       {/* container */}
@@ -27,7 +31,7 @@ const Footer = () => {
                 <button className="secondary-btn flex items-center  justify-center md:self-start">Get Templates</button>
               </div>
               <div className="w-auto flex justify-center items-center flex-col lg:ml-40">
-                <NewLetter />
+                <NewLetter scrollToTop={() => scrollToTop()}/>
               </div>
             </div>
             {/* copy rights */}

@@ -3,9 +3,12 @@ import search from '../assets/icons/tabler_search.svg'
 import { useEffect, useState } from "react";
 import { products } from "../data/Data";
 import { Card } from '../components';
+import { ScrollContext } from '../context/ScrollContext';
+import { useContext } from 'react';
 const Product = () => {
   const [searchValue,setSearchValue] = useState('')
   const [activeButton, setActiveButton] = useState(null);
+  const { scrollToTop } = useContext(ScrollContext);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName === activeButton ? null : buttonName);
@@ -15,16 +18,11 @@ const Product = () => {
     const isActiveButton = activeButton ? item.category === activeButton : true;
     return searchValue?.toLowerCase() === '' ?isActiveButton:(isActiveButton && titleIncludesSearch)
   });
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // You can use 'auto' instead of 'smooth' for instant scrolling
-    });
-  };
+  
 
   useEffect(() =>{
     scrollToTop()
-  })
+  },[])
   return (
     <section className="w-full mt-24 font-Poppins">
         <div className="w-full py-[1rem] px-[1rem] md:py-[3.6rem] md:px-[6.2rem] flex flex-col ">

@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 
-const NewLetter = () => {
+
+const NewLetter = ({scrollToTop}) => {
+  const {navigate} = useNavigate()
   const form = useForm({
     defaultValues:{
       email:""
@@ -24,7 +27,7 @@ const NewLetter = () => {
               message:"Please Enter A Valid Email"
             }
           })} placeholder="Enter Your Email" />
-          <button type="submit" className="bg-white  rounded-r-xl px-4 py-2 flex items-center justify-center -ml-4">Subscribe</button>
+          <button type="submit" onClick={()=> navigate("/home")} className="bg-white  rounded-r-xl px-4 py-2 flex items-center justify-center -ml-4">Subscribe</button>
         </div>
         <p className="text-red-600 -mt-4">{errors?.email?.message}</p>
 

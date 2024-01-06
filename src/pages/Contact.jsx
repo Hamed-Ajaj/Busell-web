@@ -1,6 +1,8 @@
+import { useContext } from "react"
 import phone from "../assets/icons/fluent_call-16-filled.svg"
 import mail from "../assets/icons/fluent_mail-20-filled.svg"
 import { useForm } from "react-hook-form"
+import { ScrollContext } from "../context/ScrollContext"
 const Contact = () => {
   const { register, handleSubmit, formState: { errors } , reset} = useForm({
     defaultValues: {
@@ -13,6 +15,9 @@ const Contact = () => {
   const onSubmit = () => {
     reset()
   }
+
+  const { scrollToTop } = useContext(ScrollContext)
+  scrollToTop()
   return (
     <section className="mt-20 flex flex-col px-12 py-12 gap-8 justify-center items-center">
         <div className="flex w-full mb-10 md:mb-0  md:py-12 flex-col space-y-16 md:space-y-10 justify-center items-center sm:items-start sm:justify-start md:items-start md:justify-start">

@@ -1,7 +1,10 @@
-import  { useState } from 'react'
+import  { useContext, useState } from 'react'
 import PricingCard from '../components/PricingCard'
+import { ScrollContext } from '../context/ScrollContext'
 const Pricing = () => {
   const [activeButton, setActiveButton] = useState('monthly')
+  const { scrollToTop } = useContext(ScrollContext)
+  scrollToTop()
   return (
     <section className='font-Poppins py-[1rem] px-[1rem] mt-[68px] flex flex-col self-stretch md:py-[3.125rem] md:px-[6.25rem] gap-[1.9rem] md:mt-20 bg-white h-full'>
       {/* title */}
