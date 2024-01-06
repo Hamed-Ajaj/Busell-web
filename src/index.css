@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+    background-color: white;
+}
+
+.gray-gradient{
+    background: linear-gradient(180deg, rgba(100, 100, 100, 0.06) 0%, rgba(255, 255, 255, 0.00) 100%);
+}
+.primary-btn{
+    @apply bg-[#16161B] py-4 px-6 text-white rounded-xl border border-black transition duration-200;
+}
+.primary-btn-lg{
+    @apply bg-[#16161B] py-5 px-16 text-white rounded-xl  border-black transition duration-200;
+}
+.primary-btn:hover{
+    @apply bg-[#fff] py-4 px-6 text-[#000] ;
+}
+.align-md-btn{
+    @apply flex justify-center items-center py-3 px-5 text-black rounded-3xl outline-none border border-black transition duration-200;
+}
+
+.align-md-btn:hover{
+    @apply bg-[#16161B] text-white;
+}
+.secondary-btn{
+    @apply bg-[#fff] py-4 px-6 text-[#000] rounded-2xl border border-white transition duration-200;
+}
+
+.secondary-btn:hover{
+    @apply bg-[#16161B] text-white;
+}
+
+.stroke{
+    width: 23.68663rem;
+    height: 33.96875rem;
+    transform: rotate(50.607deg);
+    flex-shrink: 0;
+    stroke-width: 2px;
+    stroke: rgba(255, 255, 255, 0.00);  
+}
+
+.grid-class{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto); /* Set the number of rows and their height */
+    gap: 1rem; /* Adjust the gap as needed */
+  }
+  
+  .faq-card {
+    max-height: 250px; /* or set a fixed height as needed */
+    overflow: hidden;
+  }
+  .gray-btn{
+    @apply bg-[#F4F4F4] py-4 px-6 text-[#000] rounded-2xl border border-white transition duration-200;
+  }
+  .gray-btn-lg{
+    @apply bg-[#F4F4F4] py-5 px-16 text-[#000] rounded-2xl ;
+  }
+
