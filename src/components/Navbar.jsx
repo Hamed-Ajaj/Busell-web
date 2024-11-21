@@ -1,92 +1,76 @@
-import  { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { CustomLink } from "./CustomLink";
 const Navbar = () => {
-  const [menu, setMenu] = useState(false)
+  const [menu, setMenu] = useState(false);
 
   useEffect(() => {
-    const width = window.addEventListener('resize', () => {
-      if(document.body.clientWidth > 768) setMenu(false)
-    })
+    const width = window.addEventListener("resize", () => {
+      if (document.body.clientWidth > 768) setMenu(false);
+    });
     return () => {
-      window.removeEventListener('resize', width)
-    }
-  }, [menu, setMenu])
-  
-  return (
-    <nav className='fixed right-0 top-0 bg-white z-10 w-full flex flex-row justify-between px-4 md:px-12 py-4'>
-      <div className='flex items-center justify-center'>
-        <Link to={"/"}>
-          <h1 className='text-2xl font-bold'>Busell</h1>
-        </Link>
-      </div>
-      <div className='hidden lg:flex space-x-12 justify-center items-center'>
-        <Link to='/' className='text-lg font-medium text-[#16161B]'>
-          Home
-        </Link>
-        <Link to='/contact' className='text-lg font-medium text-[#16161B]'>
-          Contact
-        </Link>
-        <Link to='/about' className='text-lg font-medium text-[#16161B]'>
-          About
-        </Link>
-        <Link to='/pricing' className='text-lg font-medium text-[#16161B]'>
-          Pricing
-        </Link>
-        <Link to='/product' className='text-lg font-medium text-[#16161B]'>
-          Product
-        </Link>
-      </div>
-      <div className='lg:hidden items-center space-x-8 justify-center flex'>
-          <button className='primary-btn hidden md:flex'>
-            <Link to={"/product"}>
-              Brows Products
-            </Link>
-          </button>
+      window.removeEventListener("resize", width);
+    };
+  }, [menu, setMenu]);
 
-          <button className='flex lg:hidden' onClick={() => setMenu(!menu)}>
-          <svg
-            width='24'
-            height='18'
-            viewBox='0 0 24 18'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M0 0H24V2H0V0ZM0 8H24V10H0V8ZM0 16H24V18H0V16Z'
-              fill='#16161B'
-            />
-          </svg>
-        </button>
+  return (
+    <nav className="fixed right-0 top-0 bg-white z-10 w-full flex flex-row justify-between px-4 md:px-12 py-6">
+      <div className="flex items-center justify-center">
+        <Link to={"/"}>
+          <h1 className="text-2xl font-bold">Busell</h1>
+        </Link>
       </div>
-        
-          {menu && (
-            <div className='flex flex-col items-center justify-center space-y-8 py-8 text-center absolute top-16 right-0 w-full bg-white rounded-b-lg z-50' 
-            onClick={() => setMenu(false)}
-            >
-              <Link to='/' className='text-l font-medium text-[#16161B]'>
-                Home
-              </Link>
-              <Link to='/contact' className='text-l font-medium text-[#16161B]'>
-                Contact
-              </Link>
-              <Link to='/pricing' className='text-l font-medium text-[#16161B]'>
-                Pricing
-              </Link>
-              <Link to='/product' className='text-l font-medium text-[#16161B]'>
-                Product
-              </Link>
-              <Link to='/about' className='text-l font-medium text-[#16161B]'>
-                About
-              </Link>
-              <button className='primary-btn sm:block md:hidden'>
-                <Link to={"/product"}>
-                  Brows Products
-                </Link>
-              </button>
-            </div>
-          )}
+      <NavLinks />
+      <div className="lg:hidden items-center space-x-8 justify-center flex">
+        <HamburgerMenuBtn menu={menu} setMenu={setMenu} />
+      </div>
+
+      {menu && <MobileNavLinks setMenu={setMenu} />}
     </nav>
-  )
+  );
+};
+
+function NavLinks() {
+  return (
+    <div className="hidden lg:flex space-x-12 justify-center items-center">
+      <CustomLink href="/">Home</CustomLink>
+      <CustomLink href="/contact">Contact</CustomLink>
+      <CustomLink href="/pricing">Pricing</CustomLink>
+      <CustomLink href="/product">Products</CustomLink>
+    </div>
+  );
 }
 
-export default Navbar
+function MobileNavLinks({ setMenu }) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center space-y-8 py-8 text-center absolute top-16 right-0 w-full bg-white rounded-b-lg z-50"
+      onClick={() => setMenu(false)}
+    >
+      <CustomLink href="/">Home</CustomLink>
+      <CustomLink href="/contact">Contact</CustomLink>
+      <CustomLink href="/pricing">Pricing</CustomLink>
+      <CustomLink href="/product">Products</CustomLink>
+    </div>
+  );
+}
+function HamburgerMenuBtn({ menu, setMenu }) {
+  return (
+    <button className="flex lg:hidden" onClick={() => setMenu(!menu)}>
+      <svg
+        width="24"
+        height="18"
+        viewBox="0 0 24 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0H24V2H0V0ZM0 8H24V10H0V8ZM0 16H24V18H0V16Z"
+          fill="#16161B"
+        />
+      </svg>
+    </button>
+  );
+}
+
+export default Navbar;
